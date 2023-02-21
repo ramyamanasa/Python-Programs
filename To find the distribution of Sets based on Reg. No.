@@ -1,0 +1,9 @@
+#To find the distribution of Sets based on Reg. No. 
+
+regno = input("Enter your Registration Number")
+ending = (regno[-1])
+ending =  int(ending)
+if (ending % 2 == 0):
+     print("Set A")
+else :
+    print("Set B")
