@@ -1,0 +1,16 @@
+class Computer:
+  def __init__(self,num,hrs):
+    self.noofcomp = num
+    self.hrs = hrs
+
+  def getdetails(self):
+      print("Number of computerss is ",self.noofcomp, "and hrs are", self.hrs)
+
+
+  def Calcsecsperday(self) :
+    secs = self.hrs * 3600
+    print("Usage of computers in secs per day is", self.noofcomp*secs )
+
+d1 = Computer(50,6)
+d1.getdetails()
+d1.Calcsecsperday()
