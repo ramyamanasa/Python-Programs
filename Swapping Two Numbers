@@ -1,0 +1,16 @@
+#swapping
+
+def my_swapping() :
+  x = int(input("Enter the first number:"))
+  y = int(input("Enter the second number:"))
+
+  print("Before swapping x is",x, "and y is",y)
+
+  x = x + y
+  y = x - y
+  x = x - y 
+
+  print("After swapping x is",x,"and y is",y)
+
+
+my_swapping()
