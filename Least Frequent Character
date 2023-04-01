@@ -1,0 +1,17 @@
+my_string = input("Please Enter a String: ")
+ 
+
+print ("The original string is : ", my_string)
+ 
+frequencies = {}
+
+for i in my_string :
+ if i in frequencies:
+  frequencies[i] += 1
+ else:
+  frequencies[i] = 1
+  
+res = min(frequencies, key = frequencies.get)
+ 
+
+print ("The minimum of all characters in the string is : ", str(res))
