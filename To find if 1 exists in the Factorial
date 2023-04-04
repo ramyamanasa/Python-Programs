@@ -1,0 +1,21 @@
+num = int(input("Enter a number: "))
+factorial = 1
+
+if num < 0 :
+    print("No Factorial for negative values")
+
+elif num == 0:
+    factorial = 1
+    print(factorial)
+    
+else :
+    for i in range(1,num+1):
+        factorial = factorial * i
+    print("Factorial is ",factorial)
+
+
+res = [int(x) for x in str(factorial)]
+for i in res :
+    if i == 1:
+        print("Yes")
+print("No")
