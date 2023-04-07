@@ -1,0 +1,31 @@
+import threading
+
+class AlternateNumberPrinter:
+    def __init__(self, max_num):
+        self.max_num = max_num
+        self.current_num = 1
+        self.lock = threading.Lock()
+        self.cond = threading.Condition(self.lock)
+
+    def print_alternate_numbers(self, is_even_thread):
+        with self.lock:
+            while self.current_num <= self.max_num:
+                if (self.current_num % 2 == 0) == is_even_thread:
+                    print(threading.current_thread().name, ":", self.current_num)
+                    self.current_num += 1
+                    self.cond.notify()
+                else:
+                    self.cond.wait()
+
+if __name__ == "__main__":
+    max_num = 7
+    printer = AlternateNumberPrinter(max_num)
+
+    t1 = threading.Thread(target=printer.print_alternate_numbers, args=(False,), name="EvenThread")
+    t2 = threading.Thread(target=printer.print_alternate_numbers, args=(True,), name="OddThread")
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
