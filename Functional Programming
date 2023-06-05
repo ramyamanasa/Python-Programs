@@ -1,0 +1,12 @@
+marks = [[34,65,32,78,53],[53,52,88,42,32],[98,52,67,85,74]]
+
+def fail(marks):
+  for i in marks :
+    if i <40 :
+      return True
+
+res = filter(fail,marks)
+res = list(res)
+for x in range(0, len(marks)) :
+  if marks[x] in res :
+    print("Student {} failed in atleast one sub".format(x+1))
