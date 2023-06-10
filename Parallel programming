@@ -1,0 +1,51 @@
+import threading
+
+class Node:
+
+    def __init__(self, data):
+
+        self.data = data
+
+        self.next = None
+
+class ThreadSafeStack:
+
+    def __init__(self):
+
+        self.top = None
+
+        self.lock = threading.Lock()
+
+    def push(self, data):
+
+        with self.lock:
+
+            new_node = Node(data)
+
+            new_node.next = self.top
+
+            self.top = new_node
+
+    def pop(self):
+
+        with self.lock:
+
+            if self.top is None:
+
+                return None
+
+            else:
+
+                popped_node = self.top
+
+                self.top = self.top.next
+
+                popped_node.next = None
+
+                return popped_node.data
+
+    def isEmpty(self):
+
+        with self.lock:
+
+            return self.top is None
