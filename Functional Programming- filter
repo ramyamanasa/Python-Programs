@@ -1,0 +1,11 @@
+#NaN score filtering
+scores = [["NaN", 12, .5, 78],[2, 13, .5, .7], 
+          [2,"NaN", .5, 78],[2, 14, .5, 39]]
+
+def no_NaN(answers) :
+    for num in answers :
+        if str(num)=="NaN":
+            return False
+    return True
+valid = list(filter(no_NaN, scores))
+print(valid)
